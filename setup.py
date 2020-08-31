@@ -24,7 +24,7 @@ with open('README.rst', encoding='utf-8') as f:
     readme = f.read()
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
-# requirements = parse_requirements('requirements.txt', session=False)
+requirements = parse_requirements('requirements.txt', session=False)
 # requirements = [str(ir.req) for ir in requirements]
 
 # try:
