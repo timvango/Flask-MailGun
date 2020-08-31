@@ -5,6 +5,7 @@ Flask-MailGun
 Flask extension to use the Mailgun email parsing service
 for sending and receving emails
 """
+
 try: # for pip >= 10
     from pip._internal.req import parse_requirements
 except ImportError: # for pip <= 9.0.3
@@ -23,8 +24,14 @@ with open('README.rst', encoding='utf-8') as f:
     readme = f.read()
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
-requirements = parse_requirements('requirements.txt', session=False)
-requirements = [str(ir.req) for ir in requirements]
+# requirements = parse_requirements('requirements.txt', session=False)
+# requirements = [str(ir.req) for ir in requirements]
+
+# try:
+#     requirements = [str(ir.req) for ir in install_reqs]
+# except:
+#     requirements = [str(ir.requirement) for ir in install_reqs]
+requirements = [getattr(ir, 'requirement', str(getattr(ir, 'req', None))) for ir in install_requirements]
 
 __NAME__ = 'Flask-MailGun3'
 __doc__ = readme
