@@ -31,7 +31,7 @@ with open('README.rst', encoding='utf-8') as f:
 #     requirements = [str(ir.req) for ir in install_reqs]
 # except:
 #     requirements = [str(ir.requirement) for ir in install_reqs]
-requirements = [getattr(ir, 'requirement', str(getattr(ir, 'req', None))) for ir in install_requirements]
+requirements = [getattr(ir, 'requirement', str(getattr(ir, 'req', None))) for ir in install_reqs]
 
 __NAME__ = 'Flask-MailGun3'
 __doc__ = readme
