@@ -25,12 +25,6 @@ with open('README.rst', encoding='utf-8') as f:
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
 requirements = parse_requirements('requirements.txt', session=False)
-# requirements = [str(ir.req) for ir in requirements]
-
-# try:
-#     requirements = [str(ir.req) for ir in install_reqs]
-# except:
-#     requirements = [str(ir.requirement) for ir in install_reqs]
 requirements = [getattr(ir, 'requirement', str(getattr(ir, 'req', None))) for ir in requirements]
 
 __NAME__ = 'Flask-MailGun3'
